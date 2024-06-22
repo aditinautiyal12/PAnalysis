@@ -1,0 +1,15 @@
+# General dependencies
+pandas==2.0.3
+scikit-learn==1.2.2
+
+# For RandomForestRegressor
+numpy==1.24.3
+
+# For running subprocesses (part of Python standard library)
+subprocess==1.2.2
+
+# For date and time manipulations (part of Python standard library)
+datetime==5.2
+
+# To handle HTTP requests
+requests==2.31.0
