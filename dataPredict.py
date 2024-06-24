@@ -5,6 +5,7 @@ from datetime import datetime, timedelta
 import subprocess
 import os
 
+from getCryptoData import save_dataframe_to_csv
 from mergeandtransform import read_and_transform_data
 
 data_folder = 'Data'
@@ -81,7 +82,10 @@ def main():
         # Combine all predicted DataFrames into a single DataFrame if needed
         if predicted_dfs:
             combined_predicted_df = pd.concat(predicted_dfs, ignore_index=True)
-            combined_predicted_df.to_csv('predicted_prices_all_symbols.csv', index=False)
+            current_date = datetime.now().strftime("%Y%m%d")
+            predicted_data_folder = 'Predicted Data'
+            filename = f"wazirx_predicted_data_{current_date}.csv"
+            save_dataframe_to_csv(combined_predicted_df, predicted_data_folder, filename)
             print(f"All predicted prices saved to 'predicted_prices_all_symbols.csv'.")
         else:
             print("No predictions made.")
